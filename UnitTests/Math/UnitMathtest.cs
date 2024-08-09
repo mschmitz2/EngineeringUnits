@@ -311,6 +311,9 @@ public class UnitMathTest
         Assert.AreEqual(SumC, Sum3C);
         Assert.AreEqual(MaxC, Max3C);
         Assert.AreEqual(MinC, Min3C);
+
+
+
         // Params
         Temperature? AverageKp = UnitMath.Average(Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
         Temperature? SumKp = UnitMath.Sum(Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
@@ -326,6 +329,23 @@ public class UnitMathTest
         Assert.AreEqual(SumKp.Kelvin, 6.0, 0);
         Assert.AreEqual(MaxKp.Kelvin, 3.0, 0);
         Assert.AreEqual(MinKp.Kelvin, 1.0, 0);
+
+
+        Temperature? AverageCp = UnitMath.Average(Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(3));
+        Temperature? SumCp = UnitMath.Sum(Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(3));
+        Temperature? MaxCp = UnitMath.Max(Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(3));
+        Temperature? MinCp = UnitMath.Min(Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(3));
+
+        Assert.IsNotNull(AverageCp);
+        Assert.IsNotNull(SumCp);
+        Assert.IsNotNull(MaxCp);
+        Assert.IsNotNull(MinCp);
+
+        Assert.AreEqual(AverageCp.DegreeCelsius, 2.0, 0);
+        Assert.AreEqual(SumCp.DegreeCelsius, 552.3, 0); // This is a little weird but I guess correct..
+        Assert.AreEqual(MaxCp.DegreeCelsius, 3.0, 0);
+        Assert.AreEqual(MinCp.DegreeCelsius, 1.0, 0);
+
 
         // Tuples
         var tK = (Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
@@ -343,6 +363,24 @@ public class UnitMathTest
         Assert.AreEqual(SumKt.Kelvin, 6.0, 0);
         Assert.AreEqual(MaxKt.Kelvin, 3.0, 0);
         Assert.AreEqual(MinKt.Kelvin, 1.0, 0);
+
+
+        var tC = (Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(3));
+        Temperature? AverageCt = UnitMath.Average(tC);
+        Temperature? SumCt =     UnitMath.Sum(tC);
+        Temperature? MaxCt =     UnitMath.Max(tC);
+        Temperature? MinCt =     UnitMath.Min(tC);
+
+        Assert.IsNotNull(AverageCt);
+        Assert.IsNotNull(SumCt);
+        Assert.IsNotNull(MaxCt);
+        Assert.IsNotNull(MinCt);
+
+        Assert.AreEqual(AverageCt.DegreeCelsius, 2.0, 0);
+        Assert.AreEqual(SumCt.DegreeCelsius, 552.3, 0); // This is a little weird but I guess correct..
+        Assert.AreEqual(MaxCt.DegreeCelsius, 3.0, 0);
+        Assert.AreEqual(MinCt.DegreeCelsius, 1.0, 0);
+
 
 
     }
