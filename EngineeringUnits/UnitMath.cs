@@ -95,7 +95,16 @@ public static class UnitMath
     /// </summary>
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The minimum value of the <see cref="BaseUnit"/> objects.</returns>
-    public static UnknownUnit? Min(IEnumerable<BaseUnit?> list) => list.Min().ToUnknownUnit();
+    public static UnknownUnit? Min(IEnumerable<BaseUnit?> list)
+    {
+        if (list.Any() is false)
+            return null;
+
+        if (list.Any(x => x is null))
+            return null;
+
+        return list.Min().ToUnknownUnit();
+    }
 
     public static UnknownUnit? Min(params BaseUnit?[] x) => UnitMath.Min(x.AsIEnumerable());
     public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Min(tuple.AsIEnumerable());
@@ -109,7 +118,16 @@ public static class UnitMath
     /// </summary>
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The maximum value of the <see cref="BaseUnit"/> objects.</returns>
-    public static UnknownUnit? Max(IEnumerable<BaseUnit?> list) => list.Max().ToUnknownUnit();
+    public static UnknownUnit? Max(IEnumerable<BaseUnit?> list)
+    {
+        if (list.Any() is false)
+            return null;
+
+        if (list.Any(x => x is null))
+            return null;
+
+        return list.Max().ToUnknownUnit();
+    }
 
     public static UnknownUnit? Max(params BaseUnit?[] x) => UnitMath.Max(x.AsIEnumerable());
     public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Max(tuple.AsIEnumerable());
