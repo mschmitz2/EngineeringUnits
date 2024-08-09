@@ -311,6 +311,40 @@ public class UnitMathTest
         Assert.AreEqual(SumC, Sum3C);
         Assert.AreEqual(MaxC, Max3C);
         Assert.AreEqual(MinC, Min3C);
+        // Params
+        Temperature? AverageKp = UnitMath.Average(Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
+        Temperature? SumKp = UnitMath.Sum(Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
+        Temperature? MaxKp = UnitMath.Max(Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
+        Temperature? MinKp = UnitMath.Min(Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
+
+        Assert.IsNotNull(AverageKp);
+        Assert.IsNotNull(SumKp);
+        Assert.IsNotNull(MaxKp);
+        Assert.IsNotNull(MinKp);
+
+        Assert.AreEqual(AverageKp.Kelvin, 2.0, 0);
+        Assert.AreEqual(SumKp.Kelvin, 6.0, 0);
+        Assert.AreEqual(MaxKp.Kelvin, 3.0, 0);
+        Assert.AreEqual(MinKp.Kelvin, 1.0, 0);
+
+        // Tuples
+        var tK = (Temperature.FromKelvin(2), Temperature.FromKelvin(1), Temperature.FromKelvin(3));
+        Temperature? AverageKt = UnitMath.Average(tK);
+        Temperature? SumKt =     UnitMath.Sum(tK);
+        Temperature? MaxKt =     UnitMath.Max(tK);
+        Temperature? MinKt =     UnitMath.Min(tK);
+
+        Assert.IsNotNull(AverageKt);
+        Assert.IsNotNull(SumKt);
+        Assert.IsNotNull(MaxKt);
+        Assert.IsNotNull(MinKt);
+
+        Assert.AreEqual(AverageKt.Kelvin, 2.0, 0);
+        Assert.AreEqual(SumKt.Kelvin, 6.0, 0);
+        Assert.AreEqual(MaxKt.Kelvin, 3.0, 0);
+        Assert.AreEqual(MinKt.Kelvin, 1.0, 0);
+
+
     }
 
     //Create test
