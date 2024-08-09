@@ -806,7 +806,12 @@ public class Program
         // (3) With additional check (should later be added to UnitMath method)
         // Length lMax3 = lengths.Any(v => v.IsNaN()) ? Length.NaN : UnitMath.Max(lengths)!;
 
-        Length lMax4 = UnitMath.Max(lengths); // TODO: ideally, this shouldn't be null but Length.NaN
+        // (4) Now fixed in UnitMath. Returns Length.NaN
+        var lMax4 = UnitMath.Max(lengths)!;
+
+        // (4b) With mixed array. Returns NaN of unknown type
+        BaseUnit[] mixedArray = [Area.Zero, Length.NaN, Length.FromMeter(10)];
+        var mixedNaN = UnitMath.Max(mixedArray)!;
 
     }
 

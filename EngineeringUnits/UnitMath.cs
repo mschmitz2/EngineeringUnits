@@ -8,6 +8,8 @@ namespace EngineeringUnits;
 
 public static class UnitMath
 {
+    // TODO: is there a way to refactor the checks for null and NaN in all the methods below?
+
     /// <summary>
     /// Calculates the sum of a collection of <see cref="BaseUnit"/> objects.
     /// </summary>
@@ -23,7 +25,16 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x.IsNaN()))
-            return null;
+        {
+            // If all units are the same, return NaN value of that type
+            var first = list.First()!;
+            var firstType = first.GetType();
+            if (list.All(u => u!.GetType()! == firstType))
+                return new UnknownUnit(double.NaN, first);
+
+            // Otherwise, return generic NaN value
+            return new UnknownUnit(double.NaN);
+        }
 
         // Fix for temperature, albeit not very elegant
         if (list.All(u => u is Temperature))
@@ -58,7 +69,16 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x.IsNaN()))
-            return null;
+        {
+            // If all units are the same, return NaN value of that type
+            var first = list.First()!;
+            var firstType = first.GetType();
+            if (list.All(u => u!.GetType()! == firstType))
+                return new UnknownUnit(double.NaN, first);
+
+            // Otherwise, return generic NaN value
+            return new UnknownUnit(double.NaN);
+        }
 
         return list.Sum() / list.Count();
     }
@@ -86,7 +106,16 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x.IsNaN()))
-            return null;
+        {
+            // If all units are the same, return NaN value of that type
+            var first = list.First()!;
+            var firstType = first.GetType();
+            if (list.All(u => u!.GetType()! == firstType))
+                return new UnknownUnit(double.NaN, first);
+
+            // Otherwise, return generic NaN value
+            return new UnknownUnit(double.NaN);
+        }
 
         return new(list.OrderBy(x => x).ToList()[list.Count() / 2]!);
     }
@@ -112,7 +141,16 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x.IsNaN()))
-            return null;
+        {
+            // If all units are the same, return NaN value of that type
+            var first = list.First()!;
+            var firstType = first.GetType();
+            if (list.All(u => u!.GetType()! == firstType))
+                return new UnknownUnit(double.NaN, first);
+
+            // Otherwise, return generic NaN value
+            return new UnknownUnit(double.NaN);
+        }
 
         return list.Min().ToUnknownUnit();
     }
@@ -138,7 +176,16 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x.IsNaN()))
-            return null;
+        {
+            // If all units are the same, return NaN value of that type
+            var first = list.First()!;
+            var firstType = first.GetType();
+            if (list.All(u => u!.GetType()! == firstType))
+                return new UnknownUnit(double.NaN, first);
+
+            // Otherwise, return generic NaN value
+            return new UnknownUnit(double.NaN);
+        }
 
         return list.Max().ToUnknownUnit();
     }
