@@ -804,7 +804,10 @@ public class Program
         // Length lMax2 = UnitMath.Max(lengths)!;
 
         // (3) With additional check (should later be added to UnitMath method)
-        Length lMax3 = lengths.Any(v => v.IsNaN()) ? Length.NaN : UnitMath.Max(lengths)!;
+        // Length lMax3 = lengths.Any(v => v.IsNaN()) ? Length.NaN : UnitMath.Max(lengths)!;
+
+        Length lMax4 = UnitMath.Max(lengths); // TODO: ideally, this shouldn't be null but Length.NaN
+
     }
 
     public partial record AreaCostUnit : UnitTypebase

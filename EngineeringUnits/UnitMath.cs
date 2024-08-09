@@ -8,7 +8,6 @@ namespace EngineeringUnits;
 
 public static class UnitMath
 {
-
     /// <summary>
     /// Calculates the sum of a collection of <see cref="BaseUnit"/> objects.
     /// </summary>
@@ -21,6 +20,9 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x is null))
+            return null;
+
+        if (list.Any(x => x.IsNaN()))
             return null;
 
         // Fix for temperature, albeit not very elegant
@@ -55,6 +57,9 @@ public static class UnitMath
         if (list.Any(x => x is null))
             return null;
 
+        if (list.Any(x => x.IsNaN()))
+            return null;
+
         return list.Sum() / list.Count();
     }
 
@@ -80,6 +85,9 @@ public static class UnitMath
         if (list.Any(x => x is null))
             return null;
 
+        if (list.Any(x => x.IsNaN()))
+            return null;
+
         return new(list.OrderBy(x => x).ToList()[list.Count() / 2]!);
     }
 
@@ -103,6 +111,9 @@ public static class UnitMath
         if (list.Any(x => x is null))
             return null;
 
+        if (list.Any(x => x.IsNaN()))
+            return null;
+
         return list.Min().ToUnknownUnit();
     }
 
@@ -124,6 +135,9 @@ public static class UnitMath
             return null;
 
         if (list.Any(x => x is null))
+            return null;
+
+        if (list.Any(x => x.IsNaN()))
             return null;
 
         return list.Max().ToUnknownUnit();
