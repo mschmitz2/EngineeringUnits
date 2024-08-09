@@ -34,12 +34,12 @@ public static class UnitMath
                             (x, y) => (x + y)!);
     }
 
-    public static UnknownUnit? Sum(params BaseUnit?[] x) => x.Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
+    public static UnknownUnit? Sum(params BaseUnit?[] x) => UnitMath.Sum(x.AsIEnumerable());
+    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Sum(tuple.AsIEnumerable());
+    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Sum(tuple.AsIEnumerable());
+    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Sum(tuple.AsIEnumerable());
+    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Sum(tuple.AsIEnumerable());
+    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Sum(tuple.AsIEnumerable());
 
     /// <summary>
     /// Calculates the average value of a collection of <see cref="BaseUnit"/> objects.
@@ -58,12 +58,12 @@ public static class UnitMath
         return list.Sum() / list.Count();
     }
 
-    public static UnknownUnit? Average(params BaseUnit?[] x) => x.Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
+    public static UnknownUnit? Average(params BaseUnit?[] x) => UnitMath.Average(x.AsIEnumerable());
+    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Average(tuple.AsIEnumerable());
+    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Average(tuple.AsIEnumerable());
+    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Average(tuple.AsIEnumerable());
+    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Average(tuple.AsIEnumerable());
+    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Average(tuple.AsIEnumerable());
 
     /// <summary>
     /// Calculates the mean value of a collection of <see cref="BaseUnit"/> objects.
@@ -83,12 +83,12 @@ public static class UnitMath
         return new(list.OrderBy(x => x).ToList()[list.Count() / 2]!);
     }
 
-    public static UnknownUnit? Mean(params BaseUnit?[] x) => x.Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
+    public static UnknownUnit? Mean(params BaseUnit?[] x) => UnitMath.Mean(x.AsIEnumerable());
+    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Mean(tuple.AsIEnumerable());
+    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Mean(tuple.AsIEnumerable());
+    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Mean(tuple.AsIEnumerable());
+    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Mean(tuple.AsIEnumerable());
+    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Mean(tuple.AsIEnumerable());
 
     /// <summary>
     /// Calculates the minimum value of a collection of <see cref="BaseUnit"/> objects.
@@ -97,12 +97,12 @@ public static class UnitMath
     /// <returns>The minimum value of the <see cref="BaseUnit"/> objects.</returns>
     public static UnknownUnit? Min(IEnumerable<BaseUnit?> list) => list.Min().ToUnknownUnit();
 
-    public static UnknownUnit? Min(params BaseUnit?[] x) => x.Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
+    public static UnknownUnit? Min(params BaseUnit?[] x) => UnitMath.Min(x.AsIEnumerable());
+    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Min(tuple.AsIEnumerable());
+    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Min(tuple.AsIEnumerable());
+    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Min(tuple.AsIEnumerable());
+    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Min(tuple.AsIEnumerable());
+    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Min(tuple.AsIEnumerable());
 
     /// <summary>
     /// Calculates the maximum value of a collection of <see cref="BaseUnit"/> objects.
@@ -111,12 +111,12 @@ public static class UnitMath
     /// <returns>The maximum value of the <see cref="BaseUnit"/> objects.</returns>
     public static UnknownUnit? Max(IEnumerable<BaseUnit?> list) => list.Max().ToUnknownUnit();
 
-    public static UnknownUnit? Max(params BaseUnit?[] x) => x.Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
+    public static UnknownUnit? Max(params BaseUnit?[] x) => UnitMath.Max(x.AsIEnumerable());
+    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?) tuple) => UnitMath.Max(tuple.AsIEnumerable());
+    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Max(tuple.AsIEnumerable());
+    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Max(tuple.AsIEnumerable());
+    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Max(tuple.AsIEnumerable());
+    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => UnitMath.Max(tuple.AsIEnumerable());
 
     /// <summary>
     /// Performs linear interpolation between two points.
