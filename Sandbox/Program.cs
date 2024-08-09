@@ -2,6 +2,7 @@
 using EngineeringUnits.Units;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 //using UnitsNet;
 
@@ -791,6 +792,19 @@ public class Program
 
 
 
+
+
+        // Testing Min/Max etc handling of NaN
+        Length[] lengths = [Length.Zero, Length.NaN, Length.FromMeter(10)];
+
+        // (1) Using Linq directly. Throws exception due to DecimalSafe checks
+        // Length lMax1 = lengths.Max()!; 
+
+        // (2) Using UnitMath. Also throws exception due to DecimalSafe checks, since we don't specifically handle it
+        // Length lMax2 = UnitMath.Max(lengths)!;
+
+        // (3) With additional check (should later be added to UnitMath method)
+        Length lMax3 = lengths.Any(v => v.IsNaN()) ? Length.NaN : UnitMath.Max(lengths)!;
     }
 
     public partial record AreaCostUnit : UnitTypebase
